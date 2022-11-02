@@ -39,14 +39,14 @@ namespace Lista_Editável
                 }
                 else if (opcao == 4)
                 {
-                    Console.WriteLine();
                     Console.WriteLine("Lista de Itens");
+                    Console.WriteLine();
                     foreach (var item in Lista)
                     {
                         Console.WriteLine(item.Key +"-"+ item.Value);
+                    }
                         Console.WriteLine("Pressione qualquer tecla.");
                         Console.ReadKey();
-                    }
                 }
                 else if (opcao == 5)    
                 {
