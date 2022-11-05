@@ -35,8 +35,8 @@ namespace Lista_Editável
                     string escritoNoConsole = Console.ReadLine();
                     chave = Convert.ToInt32(escritoNoConsole);
                     Lista.Remove(chave);
-                        Console.WriteLine("Pressione qualquer tecla.");
-                        Console.ReadKey();
+                    Console.WriteLine("Pressione qualquer tecla.");
+                    Console.ReadKey();
                     
                 }
                 else if (opcao == 3)
@@ -67,11 +67,6 @@ namespace Lista_Editável
                 }
             }
 
-
-
-
-
-
         }
         
         public static int ReceberOpcao()
@@ -83,9 +78,7 @@ namespace Lista_Editável
             Console.WriteLine("4 Listar Itens");
             Console.WriteLine("5 Sair");
 
-          
-
-            return Convert.ToInt32(Console.ReadLine());
+          return Convert.ToInt32(Console.ReadLine());
        
         }
         public static void Edicao()
