@@ -6,15 +6,14 @@ namespace Lista_Editável
 {
     internal class Program
     {
-       public static Dictionary<int, string> Lista = new Dictionary<int, string>();
+        public static Dictionary<int, string> Lista = new Dictionary<int, string>();
+        
+        public static int chave = 0;
+
         static void Main(string[] args)
         {
-           
-            int chave = 0;
-           
-
             bool menu = true;
-            while ( menu == true)
+            while (menu == true)
             {
 
                 Console.Clear();
@@ -31,11 +30,20 @@ namespace Lista_Editável
                 }
                 else if (opcao == 2)
                 {
-
+                    chave = 0;
+                    Console.WriteLine("Selecione um item para remover.");
+                    string escritoNoConsole = Console.ReadLine();
+                    chave = Convert.ToInt32(escritoNoConsole);
+                    Lista.Remove(chave);
+                        Console.WriteLine("Pressione qualquer tecla.");
+                        Console.ReadKey();
+                    
                 }
                 else if (opcao == 3)
                 {
-
+                    Edicao();
+                    Console.WriteLine("Pressione qualquer tecla.");
+                    Console.ReadKey();
                 }
                 else if (opcao == 4)
                 {
@@ -43,12 +51,12 @@ namespace Lista_Editável
                     Console.WriteLine();
                     foreach (var item in Lista)
                     {
-                        Console.WriteLine(item.Key +"-"+ item.Value);
+                        Console.WriteLine(item.Key + "-" + item.Value);
                     }
-                        Console.WriteLine("Pressione qualquer tecla.");
-                        Console.ReadKey();
+                    Console.WriteLine("Pressione qualquer tecla.");
+                    Console.ReadKey();
                 }
-                else if (opcao == 5)    
+                else if (opcao == 5)
                 {
                     Console.WriteLine("Até mais!");
                     menu = false;
@@ -58,13 +66,14 @@ namespace Lista_Editável
 
                 }
             }
-            
 
-            
+
+
 
 
 
         }
+        
         public static int ReceberOpcao()
         {
 
@@ -78,6 +87,21 @@ namespace Lista_Editável
 
             return Convert.ToInt32(Console.ReadLine());
        
+        }
+        public static void Edicao()
+        {
+            chave = 0;
+            Console.WriteLine("Escolha o item a ser editado.");
+            string escritoNoConsole = Console.ReadLine();
+            chave = Convert.ToInt32(escritoNoConsole);
+            Lista.TryGetValue(chave,out string Nome);
+            Console.WriteLine(chave + "-" + Nome);
+            Lista.Remove(chave);
+            Console.WriteLine();
+            Console.WriteLine("Renomeie o item.");
+            string renomear = Console.ReadLine();
+            Lista.Add(chave++, renomear);
+           
         }
     }
 
